@@ -27,6 +27,8 @@ void arraySolution() {
     int arrayNumber;
     std::array<int, 10> scoresArray;
     int total = 0;
+    int highScore = 0;
+    int lowScore = 100;
     for (int i =0; i<scoresArray.size(); i++){
     cout << "Enter a score once at a time: ";
     cin >> arrayNumber;
@@ -37,9 +39,17 @@ void arraySolution() {
             }
             scoresArray[i] = arrayNumber;
             total += arrayNumber;
+            if (arrayNumber > highScore) {
+                highScore = arrayNumber;
+            }
+            if (arrayNumber < lowScore) {
+                lowScore = arrayNumber;
+            }
     }
     float average = total / scoresArray.size();
     cout << "The average is: " << average << endl;
+    cout << "The highest score is: " << highScore << endl;
+    cout << "The lowest score is: " << lowScore << endl;
     }
 
 
@@ -53,6 +63,8 @@ void vectorSolution() {
     std::vector<int> scoresVector;
     int vectorNumber;
     int total = 0;
+    int highScore = 0;
+    int lowScore = 100;
 
     do {
         cout << "Enter a score (or -1 to finish): ";
@@ -64,10 +76,18 @@ void vectorSolution() {
             }
             scoresVector.push_back(vectorNumber);
             total += vectorNumber;
+            if (vectorNumber > highScore) {
+                highScore = vectorNumber;
+            }
+            if (vectorNumber < lowScore) {
+                lowScore = vectorNumber;
+            }
         }
     } while (vectorNumber != -1);
     float average = total / scoresVector.size();
     cout << "The average is: " << average << endl;
+    cout << "The highest score is: " << highScore << endl;
+    cout << "The lowest score is: " << lowScore << endl;
     std::sort(scoresVector.begin(), scoresVector.end());
 
         // Print the sorted elements
@@ -75,6 +95,7 @@ void vectorSolution() {
     for (int i = 0; i < scoresVector.size(); i++) {
         std::cout << scoresVector[i] << " ";
     }
+    cout << endl;
 }
 
 
